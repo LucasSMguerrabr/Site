@@ -20,124 +20,127 @@
 body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: var(--color-white);
-  overflow-x: hidden; /* Impede a rolagem horizontal */
 }
 
-.container {
-  max-width: 1280px;
-  margin: auto;
-}
 
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-header {
-  width: 100%;
-  padding: 60px 4%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: .5s;
-  z-index: 200;
-}
 
-header.rolagem {
-  background-color: #c3c6cdd3;
-  padding: 20px 4%;
-}
 
-header.rolagem a,
-header.rolagem i {
-  color: black;
-}
-
-header i {
-  font-size: 30px;
-  color: #fff;
-}
-
-header ul {
-  list-style-type: none;
-  text-align: center; /* Centraliza os elementos */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-header ul li {
-  margin: 0 20px;
-}
-
-header ul li a {
-  color: #000000;
-  text-decoration: none;
-  font-size: 18px; /* Tamanho da fonte ajustado */
-  font-weight: bold;
-}
-
-.btn-contato button {
-  width: 100px;
-  height: 40px;
-  border: 0;
-  background-color: #FE775A;
-  color: #fff;
-  cursor: pointer;
-  transition: .2s;
-  margin-right: 20px;
-}
-
-/* Estilos para telas menores (tablets e celulares) */
-@media (max-width: 768px) {
-  header {
-    padding: 20px 4%;
-    background-color: #c3c6cdd3;
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
   }
-
-  header ul {
-    text-align: center;
-    flex-direction: column; /* Alinhar elementos verticalmente */
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background:#CDD0D6;
+    background:;
+    height: 10vh;
+    overflow-x: hidden !important;
+
+
+    
+  }
+  
+
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    
+  }
+  
+  .nav-list li {
+    letter-spacing: 5px;
+    margin-left: 36px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+
+
+
+
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+    overflow-x: hidden !important;
+  }
+  
+  @media (max-width: 999px) {
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #23232e;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+      
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+      
+
+    }
+    .mobile-menu {
+      display: block;
+      
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
   }
 
-  header ul li {
-    margin: 10px 0;
-    display: block;
-  }
-
-  header ul li a {
-    font-size: 18px;
-  }
-
-  .btn-contato button {
-    margin-right: 10px;
-  }
-}
-
-nav a{
-    position: relative;
-}
-
-nav a::after{
-
-    content: " ";
-    background-color:#FE775A;
-    width: 0%;
-    height: 4px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in-out;
-}
-
-nav a:hover::after{
-
-    width: 100%;
-}
 
         /* Estilos da seção com imagem de fundo */
         .section-1 {
@@ -157,29 +160,30 @@ nav a:hover::after{
         }
 
 
-        .section-1 h2{
-            font-size: 38px;
-            text-transform: uppercase;
-            font-weight: bolder;
-            border-right: 4px solid;
-            width: 27ch;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: escrever 4s infinite,
-            bliking 1s infinite;
+        .section-1 h2 {
+            font-style: bold;
+            font-weight: 800;
+            font-size: clamp(2rem, 2.5vw, 50px);
+            line-height: 50px;
+            color: var(--blue);
         }
         
-        /* Criação da animação escrita*/
-
-        @keyframes escrever{
-            from{
-                width: 0;
-            }
+        
+        h2::after {
+            content: "|";
+            opacity: 1;
+            margin-left: 10px;
+            display: inline-block;
+            animation: blink .7s infinite;
         }
-
-        @keyframes bliking{
-            50%{
-                border-color: transparent;
+        
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+        
+            50% {
+                opacity: 0;
             }
         }
 
@@ -192,7 +196,8 @@ nav a:hover::after{
         /*edição no button*/
         .section-1 button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: clamp(10%,30px);
+
             background-color: #FE775A;
             color: white;
             border-radius: 5px;
@@ -216,10 +221,28 @@ nav a:hover::after{
 
         
 
-        .cor{
-            background-color:#c3c6cd9a;
+        .cor {
+            background-color: #c3c6cd9a;
             width: 100%;
             height: 130px;
+        }
+        .titulo-div{
+            font-size: 5px;
+        }
+        
+        /* Estilos para telas maiores (notebooks e desktops) */
+        @media screen and (min-width: 769px) {
+            .cor {
+                height: 130px; /* Mantém a altura original */
+            }
+        }
+        
+        /* Estilos para telas menores (celulares) */
+        @media screen and (max-width: 768px) {
+            .cor {
+                height: auto; /* Define a altura para automática (se adaptar ao conteúdo) */
+                padding: 10px; /* Adiciona espaço interno para melhor visualização em telas menores */
+            }
         }
 
         .containerproje{
@@ -561,24 +584,6 @@ form input[type=submit]{
   }
   
   /* Estilo para telas menores usando media query */
-  @media screen and (max-width: 768px) {
-    .menu-toggle {
-      display: block; /* Exibir o botão de hambúrguer em telas menores */
-    }
-  
-    nav {
-      display: none; /* Ocultar o menu de navegação em telas menores */
-    }
-  
-    /* Estilo do menu de navegação expandido quando o botão de hambúrguer é clicado */
-    .menu-opened nav {
-      display: block;
-    }
-  }
-  
-  #menu {
-    display: none;
-}
 
 /* Estilos para telas menores usando uma media query */
 @media screen and (max-width: 600px) {
@@ -599,4 +604,8 @@ form input[type=submit]{
         color: white;
         display: block;
     }
+
+    html, Body {
+        Overflow-x: hidden; 
+        }
 }
