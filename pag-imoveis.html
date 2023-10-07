@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slide.css">
+    
+    <title>Imóveis</title>
+    <style>
+        
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url(views/pexels-vecislavas-popa-1571459\ \(1\).jpg); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .container{
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .flex{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header{
+            width: 100%;
+            padding: 20px 4% 10px;;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: .5s;
+            z-index: 200;
+            background-color: #c3c6cdd3;
+        }
+
+
+        header i{
+            font-size: 20px;
+            color: #fff;
+        }
+
+        header ul{
+            list-style-type: none;
+        }
+
+        header ul li{
+            display: inline-block;
+            margin: 0 40px;
+        }
+
+        header ul li a{
+            color: rgba(0, 0, 0, 0.644);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: lighter;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .btn-contato button{
+            width: 120px;
+            height: 40px;
+            border: 0;
+            background-color: #FE775A;
+            color: #fff;
+            cursor: pointer;
+            transition: .2s;
+            margin-right: 90px;
+        }
+
+        nav a{
+            position: relative;
+        }
+
+        nav a::after{
+            content: " ";
+            background-color:#FE775A;
+            width: 0%;
+            height: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: 0.5s ease-in-out;
+        }
+
+        nav a:hover::after{
+            width: 100%;
+        }
+
+        .container1 {
+        max-width: 800px;
+        margin: 200px auto 0; /* Adicione um margin-top de 80px para deixar espaço para o cabeçalho */
+        }
+
+        form{
+        border-radius: 10px;
+        padding: 20px;
+        background-color:rgba(255, 255, 255, 0.473);
+        height: 200px
+        
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px ; 
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+        }
+
+
+        select {
+        width: 100%;
+        padding: 12px; /* Aumentar o preenchimento para torná-lo mais espaçoso */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+        transition: border-color 0.3s;
+}
+
+/* Estilizar o elemento select quando estiver focado (clicado) */
+        select:focus {
+            outline: none; /* Remover a borda de foco padrão */
+            border-color: #FE775A; /* Mudar a cor da borda quando o elemento está focado */
+        }
+
+        button{
+            width: 120px;
+            height: 40px;
+            border: 0;
+            background-color: #FE775A;
+            color: #fff;
+            cursor: pointer;
+            transition: .2s;
+            margin-right: 90px;
+        }
+
+        .card-container {
+            display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+
+            .card {
+        flex: 0 0 calc(33.33% - 20px);
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        max-width: 220px;
+        }
+
+        .card:hover {
+        transform: scale(1.05); /* Escala o card para 105% do tamanho original */
+        cursor: pointer; /* Altera o cursor para a forma de um dedo indicando que é clicável */
+        transition: transform 0.6s ease-in-out; /* Adiciona uma transição suave para o efeito */
+}
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+                <a href="#"><i class="bi bi-globe-americas"></i></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="pag-imoveis.html" target="_blank">IMÓVEIS</a></li>
+                        <li><a href="#">SOBRE NÓS </a></li>
+                    </ul>
+                </nav>
+                <div class="btn-contato">
+                    <a href="#"><button>CONTATO</button></a>
+                </div>
+            </div><!--flex-->
+        </div><!--container-->
+    </header>
+
+    <section class="section-form">
+        <div class="container1" style="margin-top:150px;"  >
+            <form>
+                <div>
+                    <label for="estado">Estado:</label>
+                    <select id="estado" name="estado" disabled>
+                        <option value="SP" selected>São Paulo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="zona" style="margin-top: 9px;">Zona:</label>
+                    <select id="zona" name="zona">
+                        <option value="norte">Zona Norte</option>
+                        <option value="sul">Zona Sul</option>
+                        <option value="leste">Zona Leste</option>
+                        <option value="oeste">Zona Oeste</option>
+                    </select>
+                </div>
+                <button type="button" onclick="buscarEmpreendimentos()" style="margin-top: 10px;" >Buscar Imóveis</button>
+            </form>
+        </div>
+
+        <div class="container1" id="empreendimentos-container" style="display: none;">
+            <h2 style="margin-top: 2px; font-size: 35px;font-weight: lighter;text-align: center; color: white;">Empreendimentos Disponíveis</h2>
+            <div class="card-container" id="empreendimentos-list">
+                <div class="card-row-container" id="empreendimentos-list"></div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function buscarEmpreendimentos() {
+    const zonaSelect = document.getElementById('zona').value;
+    const empreendimentosContainer = document.getElementById('empreendimentos-container');
+    const empreendimentosList = document.getElementById('empreendimentos-list');
+
+    // Dados fictícios de empreendimentos por zona
+    const empreendimentosPorZona = {
+        norte: [
+            {
+                nome: 'Enjoy Club',
+                imagem: 'views/Enjoy-club.jpeg',
+                descricao: 'Localidade: JAGUARIBE, OSASCO - SP',
+                valor: 'Valor do Imóvel: R$ 500,000',
+                local: 'Local: Nome da Rua, Cidade'
+            },
+            {
+                nome: 'Empreendimento 2',
+                imagem: 'imagem2.jpg',
+                descricao: 'Descrição do empreendimento 2',
+                valor: 'Valor do Imóvel: R$ 600,000',
+                local: 'Local: Nome da Rua 2, Cidade 2'
+            },
+            // Adicione mais empreendimentos conforme necessário
+        ],
+        sul: [
+            {
+                nome: 'Empreendimento 4',
+                imagem: 'imagem4.jpg',
+                descricao: 'Descrição do empreendimento 4',
+                valor: 'Valor do Imóvel: R$ 700,000',
+                local: 'Local: Nome da Rua 4, Cidade 4'
+            },
+            {
+                nome: 'Empreendimento 5',
+                imagem: 'imagem5.jpg',
+                descricao: 'Descrição do empreendimento 5',
+                valor: 'Valor do Imóvel: R$ 800,000',
+                local: 'Local: Nome da Rua 5, Cidade 5'
+            },
+            // Adicione mais empreendimentos conforme necessário
+        ],
+        leste: [
+            {
+                nome: 'Empreendimento 4',
+                imagem: 'imagem4.jpg',
+                descricao: 'Descrição do empreendimento 4',
+                valor: 'Valor do Imóvel: R$ 900,000',
+                local: 'Local: Nome da Rua 4, Cidade 4'
+            },
+            // Adicione empreendimentos da Zona Leste
+        ],
+        oeste: [
+            {
+                nome: 'ENJOY CLUB',
+                imagem: 'views/Enjoy-club.jpeg',
+                descricao: 'Planta 40,96 M2',
+                valor: 'Valor do Imóvel: R$ 1,000,000',
+                local: 'Local:Jaguaribe, Osasco - SP'
+            },
+            {
+                nome: 'BLESS RSF SHOPPING BARUERI',
+                imagem: 'views/Bless-rsf.jpeg',
+                descricao: 'Infra para um ponto de ar-condicionado,Esquadria com persiana de embutir,Ponto grill no terraço',
+                valor: 'Valor do Imóvel: R$ 350.000',
+                local: 'Local:Rua Rondônia, 155–Bairro Aldeia, Barueri - SP'
+            },
+            {
+                nome: 'ICONIC OSASCO',
+                imagem: 'views/Iconic-osasco.jpeg',
+                descricao: 'Planta 40,96 M2',
+                valor: 'Valor do Imóvel: R$ 800.000',
+                local: 'Local:AV. MARECHAL RONDON, 501 - CENTRO - OSASCO'
+            },
+
+            {
+                nome: 'MANACÁ BARUERI',
+                imagem: 'views/Manacá-Barueri.jpeg',
+                descricao: 'Planta 40,96 M2',
+                valor: 'Valor do Imóvel: R$ 459.000',
+                local: 'Local: RUA LUIZ SCOTT 238 – VILA DAS FLORES / ALDEIA – BARUERI'
+            },
+            {
+                nome: 'ACQUA PARK - HOME RESORT',
+                imagem: 'views/Aqua-Bethaville.jpeg',
+                descricao: 'Planta 40,96 M2',
+                valor: 'Valor do Imóvel: R$ 395.000',
+                local: 'Local: AV. ANÁPOLIS, 520 BETHAVILLE- BARUERI - SP'
+            },
+            {
+                nome: 'GRAN ALPHAVILLE',
+                imagem: 'views/galeria_gran_alphaville_modal_10.jpg',
+                valor: 'Valor do Imóvel: R$ 1,000,000',
+                local: 'Local: ALAMEDA MANHATTAN,114, ESQUINA COM A MANHATTAN,48 -ALPHAVILLE'
+            },
+            // Adicione empreendimentos da Zona Oeste
+        ],
+    };
+
+    const empreendimentos = empreendimentosPorZona[zonaSelect] || [];
+
+// Limpa a lista de empreendimentos anteriores
+empreendimentosList.innerHTML = '';
+
+// Função para criar um card
+function criarCard(empreendimento) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const imagem = document.createElement('img');
+    imagem.src = empreendimento.imagem;
+    imagem.alt = 'Imagem do empreendimento';
+
+    const nome = document.createElement('h3');
+    nome.textContent = empreendimento.nome;
+
+    const descricao = document.createElement('p');
+    descricao.textContent = empreendimento.descricao;
+
+    const valor = document.createElement('p');
+    valor.textContent = empreendimento.valor;
+
+    const local = document.createElement('p');
+    local.textContent = empreendimento.local;
+
+    card.appendChild(imagem);
+    card.appendChild(nome);
+    card.appendChild(descricao);
+    card.appendChild(valor);
+    card.appendChild(local);
+    empreendimentosList.appendChild(card);
+}
+
+// Adiciona os empreendimentos à lista
+if (empreendimentos.length > 0) {
+    empreendimentosContainer.style.display = 'block';
+    empreendimentos.forEach((empreendimento) => {
+        criarCard(empreendimento);
+    });
+} else {
+    empreendimentosContainer.style.display = 'none';
+}
+}
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+

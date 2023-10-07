@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slide.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    
+    <header id="header">
+        <div class="container">
+
+            <div class="flex">
+
+                <a href="#"><i class="bi bi-globe-americas"></i></a>
+
+                <nav>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="pag-imoveis.html" target="_blank">IMÓVEIS</a></li>
+                        <li><a href="#">SOBRE NÓS </a></li>
+
+                    </ul>
+                </nav>
+
+                <div class="btn-contato">
+                    <a href="#"><button>CONTATO</button></a>
+                </div>
+
+            </div><!--flex-->
+
+        </div><!--container-->
+    </header>
+
+    <section class="section-1" id="section-1">
+        <div class="section-inicial">
+                <h2>Guerra Soluções Imobiliárias</h2> <br>
+            <p>Onde seus Sonhos Encontram um Endereço</p><br>
+            <a href="pag-imoveis.html"><button><span>Saiba Mais</span></button></a>
+            
+        </div>
+    </section>
+
+    <div class="cor"><p class="titulo-div">PRINCIPAIS EMPREENDIMENTOS</p></div>
+
+    <section class="containerproje">
+        <div class="slide-container active">
+            <div class="slide">
+             <div class="contentproje">
+               <h3>ICONIC OSASCO</h3>
+               <a href="https://ftd.com.br/" class="bntproj">Saiba mais</a>
+             </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+             <div class="contentproje">
+               <h3>VIVA RSF JAGUARIBE</h3>
+               <a href="https://ftd.com.br/" class="bntproj">Saiba mais</a>
+             </div>
+            </div>
+        </div>
+        
+        <div class="slide-container">
+            <div class="slide">
+             <div class="contentproje">
+               <h3>ENJOY HOME CLUB</h3>
+               <a href="https://www.escolasconectadas.org.br/cursos" class="bntproj">Saiba mais</a>
+             </div>
+            </div>
+        </div>
+        <div id="prev" onclick="prev()"> < </div>
+        <div id="next" onclick="next()"> > </div>
+    </section>
+     <section id="sobremim" class="section-sobremim">
+        <div class="main-contentsobre">
+            <img class="main-img.png" src="views/WhatsApp-Image-2023-09-04-at-11.13.32.jpg">
+            <div class="div-contenttext">
+                <h2>Valissa Guerra</h2>
+                <h3>corretora da Guerra Soluções Imobiliárias </h3><br>
+                <p>
+                    &nbsp;&nbsp;Estou aqui para redefinir o seu conceito de imóveis diferenciados. Na Guerra Soluções Imobiliárias, não apenas vendemos propriedades, mas simbolizamos o futuro do empreendimento residencial.<br>
+
+                    &nbsp;&nbsp;Como uma corretora experiente no mercado imobiliário , estou sempre um passo à frente quando se trata das tendências mais inovadoras em design, tecnologia e estilo de vida. Na nossa busca incessante pela excelência, transformamos cada transação em uma experiência única e personalizada.<br>
+                    &nbsp;&nbsp; Nossa equipe não se contenta em apenas encontrar empreendimentos em destaque ; nós desenhamos cenários de vida exclusivos para você. Seja para uma casa contemporânea com tecnologia de ponta,  estamos prontos para materializar seus sonhos de maneira inovadora.<br>
+                    &nbsp;&nbsp; Imagine não apenas encontrar uma casa, mas co-criar um legado. Na Guerra Soluções Imobiliárias, inovação é nossa tradição, e cada imóvel é uma oportunidade de criar um futuro extraordinário. Deixe-nos ser seu guia em uma jornada de descobertas imobiliárias inovadoras. <br>
+
+                </p>
+                
+                
+
+            </div><!--fecha div contenttext-->
+        </div><!--main-contentsobre-->
+    </section><!--Fecha a section-->
+
+    
+    
+    <section class="form-container">
+        <div class="container2">
+            <form method="post" action="index.php">
+                <h1 class="title-form">Entre em contato</h1>
+                <p>Preencha o formulário abaixo e entraremos em contato com você</p>
+                <div class="input-single">
+                    <input class="input" type="text" id="nome" name="nome" required autocomplete="off">
+                    <label for="nome">Seu nome completo</label>
+                </div>
+                <div class="input-single">
+                    <input class="input" type="text" id="email" name="email" required autocomplete="off">
+                    <label for="email">Seu e-mail</label>
+                </div>
+                <div class="input-single">
+                    <input class="input" type="text" id="telefone" name="telefone" required autocomplete="off">
+                    <label for="telefone">Seu telefone</label>
+                </div>
+                <div class="btn"><input type="submit" value="Enviar"></div>
+            </form>
+        </div><!--container-->
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
